@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <p>This post has been added :</p>
+    <h2>{{ postTitle }}</h2>
+    <p>{{ postText }}</p>
+    <p>{{ postDate }}</p>
+    <p>{{ postCategory.title }}</p>
+    <a href="{{ path("home") }}">Go to home</a>
+{% endblock %}

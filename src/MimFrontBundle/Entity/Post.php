@@ -38,7 +38,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
@@ -48,6 +48,14 @@ class Post
      * @ORM\Column(name="enable", type="boolean", nullable=true)
      */
     private $enable;
+
+    /**
+     *
+     * @var object
+     *
+     * @ORM\ManyToOne(targetEntity="MimFrontBundle\Entity\Category")
+     */
+    private $category;
 
 
     /**
@@ -150,5 +158,28 @@ class Post
     public function getEnable()
     {
         return $this->enable;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \MimFrontBundle\Entity\Category $category
+     * @return Post
+     */
+    public function setCategory(\MimFrontBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \MimFrontBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }
